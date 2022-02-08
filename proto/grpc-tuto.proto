@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package app;
+
+option go_package = "/proto";
+
+message Hello {
+    string msg = 1;
+}
+
+message User {
+    string id = 1;
+    string name = 2;
+    string password = 3;
+}
+
+message Response {
+    string ok = 1;
+}
+
+message UserResponse {
+    User user = 1;
+}
+
+service AppService {
+    rpc SayHello (Hello) returns (Response) {}
+    // rpc SaveUser (User) returns (Response) {}
+    // rpc GetUser (User) returns (UserResponse) {}
+}
